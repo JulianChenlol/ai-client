@@ -1,0 +1,72 @@
+from typing import Optional, List
+from .schemas import LlmModel
+from .models import LlmModelCreate, LlmModelUpdate, LlmModelRead
+from sqlalchemy.orm import Session
+from pydantic_core import ValidationError, InitErrorDetails
+from app.exceptions import NotFoundError
+
+
+def get(*, db_session: Session, llm_model_id: int) -> Optional[LlmModel]:
+    """Returns a LlmModel object based on the given the id"""
+    return db_session.query(LlmModel).filter(LlmModel.id == llm_model_id).first()
+
+
+def get_by_name(*, db_session: Session, name: str) -> Optional[LlmModel]:
+    """Returns a LlmModel object based on the given name"""
+    return db_session.query(LlmModel).filter(LlmModel.name == name).one_or_none()
+
+
+def get_by_name_or_raise(*, db_session: Session, llm_model_in: LlmModelRead) -> LlmModel:
+    """Returns the llm_model specified or raises ValidationError."""
+    llm_model = get_by_name(db_session=db_session, name=llm_model_in.name)
+    if llm_model is None:
+        raise ValidationError.from_exception_data(
+            title=LlmModelRead.__name__,
+            line_errors=[
+                InitErrorDetails(type=NotFoundError, loc=("llm_model",), input=llm_model_in.name)
+            ],
+        )
+    return llm_model
+
+
+def get_all(*, db_session: Session) -> List[Optional[LlmModel]]:
+    """Returns all LlmModel objects"""
+    return db_session.query(LlmModel).all()
+
+
+def create(*, db_session: Session, llm_model_in: LlmModelCreate) -> LlmModel:
+    """Creates a new LlmModel object"""
+    llm_model = LlmModel(**llm_model_in.model_dump())
+    db_session.add(llm_model)
+    db_session.commit()
+    return llm_model
+
+
+def get_or_create(*, db_session: Session, llm_model_in: LlmModelCreate) -> LlmModel:
+    """Returns the llm_model specified or creates a new one."""
+    if llm_model_in.id:
+        q = db_session.query(LlmModel).filter(LlmModel.id == llm_model_in.id)
+    else:
+        q = db_session.query(LlmModel).filter_by(**llm_model_in.model_dump(exclude={"id"}))
+    instance = q.first()
+    if instance:
+        return instance
+    return create(db_session=db_session, llm_model_in=llm_model_in)
+
+
+def update(*, db_session: Session, llm_model: LlmModel, llm_model_in: LlmModelUpdate) -> LlmModel:
+    """Updates a LlmModel object"""
+    llm_model_data = llm_model.dict()
+    update_data = llm_model_in.model_dump(exclude_unset=True)
+    for field in llm_model_data:
+        if field in update_data:
+            setattr(llm_model, field, update_data[field])
+    db_session.commit()
+    return llm_model
+
+
+def delete(*, db_session: Session, llm_model_id: int):
+    """Deletes a LlmModel object"""
+    llm_model = db_session.query(LlmModel).filter(LlmModel.id == llm_model_id).first()
+    db_session.delete(llm_model)
+    db_session.commit()

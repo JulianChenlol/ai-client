@@ -1,0 +1,38 @@
+{
+  "terminal.integrated.env.osx": {
+    "PYTHONPATH": "${workspaceFolder}/src/",
+  },
+  "terminal.integrated.env.linux": {
+    "PYTHONPATH": "${workspaceFolder}/src/",
+  },
+  "terminal.integrated.env.windows": {
+    "PYTHONPATH": "${workspaceFolder}/src/",
+  },
+  "python.analysis.typeCheckingMode": "off",
+  "files.exclude": {
+    "**/*.pyc": true,
+    "*.log": true,
+  },
+  "flake8.args": [
+    "--ignore=E24,W504,E501",
+    "--verbose"
+  ],
+  "black-formatter.args": [
+    "--line-length=100",
+  ],
+  "editor.formatOnSave": true,
+  "search.followSymlinks": false,
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "files.insertFinalNewline": true,
+  "vetur.format.enable": false,
+  "python.testing.pytestEnabled": true,
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "never"
+    }
+  },
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportInvalidTypeForm": "none"
+  },
+}
