@@ -1,4 +1,4 @@
-from app.models import AppBase, PrimaryKey, NameStr, Pagination
+from app.models import AppBase, Pagination, PrimaryKey, NameStr
 from typing import Optional, Literal
 
 
