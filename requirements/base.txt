@@ -6,6 +6,13 @@ python-multipart==0.0.9
 alembic==1.13.2
 sqlalchemy==2.0.31
 sqlalchemy-filters==0.13.0
-sqlalchemy-utils==0.14.2
+sqlalchemy-utils==0.41.2
 python-slugify==8.0.4
+psycopg2[binary]==2.9.1
 slowapi==0.1.9
+
+## base
+requests==2.32.3
+
+## code linting
+black==24.8.0

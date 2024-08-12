@@ -6,7 +6,7 @@ from pydantic import BaseModel
 from starlette.responses import JSONResponse
 
 
-from app.llm_model.router import router as llm_model_router
+from app.model.llm_model.router import router as llm_model_router
 
 
 class ErrorMessage(BaseModel):

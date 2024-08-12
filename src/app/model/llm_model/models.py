@@ -3,7 +3,6 @@ from typing import Optional, Literal
 
 
 class LlmModelBase(AppBase):
-    id: Optional[PrimaryKey]
     name: NameStr
     instance: NameStr
     type: Literal["LLM"] = "LLM"
@@ -25,7 +24,7 @@ class LlmModelUpdate(LlmModelBase):
 
 
 class LlmModelRead(LlmModelBase):
-    pass
+    id: Optional[PrimaryKey]
 
 
 class LlmModelPagination(Pagination):
