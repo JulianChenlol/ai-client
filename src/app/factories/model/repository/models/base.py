@@ -12,6 +12,10 @@ class BaseModel:
     def model_name(self):
         return self._model_name
 
+    def check_apikey(self):
+        if not self._apikey:
+            raise ValueError("API Key is missing")
+
 
 class ChatModel(BaseModel):
 

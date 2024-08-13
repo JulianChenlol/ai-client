@@ -4,6 +4,7 @@ from typing import Optional, Literal
 
 class LlmModelBase(AppBase):
     name: NameStr
+    display_name: NameStr
     instance: NameStr
     type: Literal["LLM"] = "LLM"
     properties: Literal["Public", "Private"]

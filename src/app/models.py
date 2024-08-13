@@ -52,6 +52,7 @@ class ModelMixin(object):
     """Model mixin"""
 
     name = Column(String)
+    display_name = Column(String)
     instance = Column(String)
     type = Column(String)
     properties = Column(String)

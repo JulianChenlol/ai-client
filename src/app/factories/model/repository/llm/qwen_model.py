@@ -1,20 +1,22 @@
 from typing import List
 import requests
 import json
-from .models.base import ChatModel
-from .models.chat import Dialog
+from ..models.base import ChatModel
+from ..models.chat import Dialog
 
 PROMPT_TEMPLATE = """<|im_start|>system
 You are a helpful assistant<|im_end|>
 <|im_start|>user
 {prompt}<|im_end|>
 <|im_start|>assistant"""
-URL = "http://10.40.22.45:8000/completion"
+# URL = "http://10.40.22.45:8000/completion"
 TIMEOUT = 30
 
 
 class QwenModel(ChatModel):
-    model_name = "qwen"
+
+    def __init__(self) -> None:
+        super().__init__(apikey=None, model_name="qwen")
 
     def get_model_config(self):
         return {
@@ -52,7 +54,7 @@ class QwenModel(ChatModel):
 
     def complete(self, messages: List[Dialog], stream: bool):
         response = requests.post(
-            url=URL,
+            url=self.url,
             headers={"Content-Type": "application/json"},
             data=self.get_data(messages=messages, stream=stream),
             timeout=TIMEOUT,
