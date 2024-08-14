@@ -4,6 +4,38 @@ from .models import LlmModelCreate, LlmModelUpdate, LlmModelRead
 from sqlalchemy.orm import Session
 from pydantic_core import ValidationError, InitErrorDetails
 from app.exceptions import NotFoundError
+import requests
+from app.utils.log_util import logger
+
+
+def check_service_health(url, fail_on_no_slot=False):
+    params = {}
+    if fail_on_no_slot:
+        params["fail_on_no_slot"] = "1"
+
+    try:
+        response = requests.get(url, params=params)
+        status_code = response.status_code
+        data = response.json()
+
+        if status_code == 200:
+            if data["status"] == "ok":
+                logger.info("Service is healthy and ready.")
+            elif data["status"] == "no slot available":
+                logger.warning("Service is up, but no slots are available.")
+            return True
+        elif status_code == 503 and data["status"] == "loading model":
+            logger.error("Service is loading the model.")
+            return True
+        elif status_code == 500 and data["status"] == "error":
+            logger.error("Service encountered an error while loading the model.")
+            return False
+        else:
+            logger.error(f"Unhandled status code {status_code} with response {data}")
+            return True
+
+    except requests.RequestException as e:
+        logger.error(f"Failed to connect to service: {e}")
 
 
 def get(*, db_session: Session, llm_model_id: int) -> Optional[LlmModel]:

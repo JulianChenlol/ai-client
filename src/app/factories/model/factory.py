@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from .repository.llm.qwen_model import QwenModel
+from app.plugins.app_nacos.manager import get_service_instance
 
 
 class IFactory(ABC):
@@ -10,8 +11,11 @@ class IFactory(ABC):
 
 class LlmFactory(IFactory):
     def get_model(self, model_type: str):
+        url = get_service_instance(model_type)
+        if not url:
+            return None
         if model_type == "qwen":
-            return QwenModel()
+            return QwenModel(url)
         else:
             return None
 

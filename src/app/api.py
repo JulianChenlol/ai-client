@@ -7,6 +7,7 @@ from starlette.responses import JSONResponse
 
 
 from app.model.llm_model.router import router as llm_model_router
+from app.factories.model.router import router as model_router
 
 
 class ErrorMessage(BaseModel):
@@ -41,3 +42,4 @@ def healthcheck():
 
 
 api_router.include_router(llm_model_router, prefix="/llm_models", tags=["llm_models"])
+api_router.include_router(model_router, prefix="/models", tags=["models"])

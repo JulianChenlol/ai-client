@@ -16,6 +16,9 @@ class BaseModel:
         if not self._apikey:
             raise ValueError("API Key is missing")
 
+    def get_model_instance(self):
+        pass
+
 
 class ChatModel(BaseModel):
 

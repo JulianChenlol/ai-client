@@ -1,8 +1,8 @@
 from typing import List
 import requests
 import json
-from ..models.base import ChatModel
-from ..models.chat import Dialog
+from ...models.base import ChatModel
+from ...models.chat import Dialog
 
 PROMPT_TEMPLATE = """<|im_start|>system
 You are a helpful assistant<|im_end|>
@@ -15,7 +15,8 @@ TIMEOUT = 30
 
 class QwenModel(ChatModel):
 
-    def __init__(self) -> None:
+    def __init__(self, url) -> None:
+        self._url = url
         super().__init__(apikey=None, model_name="qwen")
 
     def get_model_config(self):
@@ -54,7 +55,7 @@ class QwenModel(ChatModel):
 
     def complete(self, messages: List[Dialog], stream: bool):
         response = requests.post(
-            url=self.url,
+            url=self._url,
             headers={"Content-Type": "application/json"},
             data=self.get_data(messages=messages, stream=stream),
             timeout=TIMEOUT,

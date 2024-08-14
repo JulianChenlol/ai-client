@@ -57,5 +57,6 @@ class ModelMixin(object):
     type = Column(String)
     properties = Column(String)
     server_ip = Column(String)
+    server_port = Column(String)
     online = Column(Boolean)
     gpu = Column(String)
