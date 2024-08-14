@@ -1,13 +1,20 @@
 from fastapi import FastAPI, status
 from fastapi.responses import JSONResponse
+from pydantic_core import ValidationError
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
+
 from starlette.middleware.gzip import GZipMiddleware
+from starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoint
+from starlette.requests import Request
+from starlette.responses import StreamingResponse
+
 import uvicorn
 from contextlib import asynccontextmanager
 
 from app.rate_limiter import limiter
 from app.api import api_router
+from app.utils.log_util import logger
 from app.plugins.app_nacos.service import start_nacos_client, stop_nacos_client
 
 
@@ -28,8 +35,8 @@ async def lifespan(app: FastAPI):
 
 
 # we create the ASGI for the app
-# app = FastAPI(exception_handlers=exception_handlers, openapi_url="")
-app = FastAPI(exception_handlers=exception_handlers, openapi_url="", lifespan=lifespan)
+app = FastAPI(exception_handlers=exception_handlers, openapi_url="")
+# app = FastAPI(exception_handlers=exception_handlers, openapi_url="", lifespan=lifespan)
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 app.add_middleware(GZipMiddleware, minimum_size=1000)
@@ -45,6 +52,35 @@ api = FastAPI(
 )
 api.add_middleware(GZipMiddleware, minimum_size=1000)
 
+
+class ExceptionMiddleware(BaseHTTPMiddleware):
+    async def dispatch(
+        self, request: Request, call_next: RequestResponseEndpoint
+    ) -> StreamingResponse:
+        try:
+            response = await call_next(request)
+        except ValidationError as e:
+            logger.exception(e)
+            response = JSONResponse(
+                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, content={"detail": e.errors()}
+            )
+        except ValueError as e:
+            logger.exception(e)
+            response = JSONResponse(
+                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                content={"detail": [{"msg": "Unknown", "loc": ["Unknown"], "type": "Unknown"}]},
+            )
+        except Exception as e:
+            logger.exception(e)
+            response = JSONResponse(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                content={"detail": [{"msg": "Unknown", "loc": ["Unknown"], "type": "Unknown"}]},
+            )
+
+        return response
+
+
+api.add_middleware(ExceptionMiddleware)
 # we add all API routes to the Web API framework
 api.include_router(api_router)
 

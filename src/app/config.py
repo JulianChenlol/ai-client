@@ -20,9 +20,9 @@ SQLALCHEMY_DATABASE_URI = f"postgresql+psycopg2://{_DATABASE_CREDENTIAL_USER}:{_
 
 NACOS_SERVER = config("NACOS_SERVER")
 
-APP_JWT_SECRET = config("App_JWT_SECRET", default=None)
-APP_JWT_ALG = config("App_JWT_ALG", default="HS256")
-APP_JWT_EXP = config("App_JWT_EXP", cast=int, default=86400)  # Seconds
+APP_JWT_SECRET = config("APP_JWT_SECRET", default=None)
+APP_JWT_ALG = config("APP_JWT_ALG", default="HS256")
+APP_JWT_EXP = config("APP_JWT_EXP", cast=int, default=86400)  # Seconds
 
 ALEMBIC_INI_PATH = config(
     "ALEMBIC_INI_PATH",

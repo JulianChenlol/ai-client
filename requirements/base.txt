@@ -1,5 +1,5 @@
 pydantic==2.6.4
-fastapi==0.110.0
+fastapi==0.108.0
 uvicorn==0.29.0
 gunicorn==21.2.0
 python-multipart==0.0.9
@@ -13,6 +13,11 @@ slowapi==0.1.9
 
 ## base
 requests==2.32.3
+bcrypt==4.2.0
+pyjwt[crypto]==2.8.0
+pydantic[email]==2.6.4
+starlette==0.32.0.post1
+python-jose==3.3.0
 
 ## code linting
 black==24.8.0

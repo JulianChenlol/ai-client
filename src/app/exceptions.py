@@ -2,8 +2,8 @@ from pydantic.errors import PydanticUserError
 
 
 class NotFoundError(PydanticUserError):
+    code = "not_found"
     message = "{msg}"
-    code = None
 
 
 class FieldNotFoundError(PydanticUserError):
