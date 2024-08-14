@@ -4,12 +4,21 @@ import random
 from app.utils.log_util import logger
 
 
-def register_service(service_name, host, port):
+async def register_service(service_name, host, port):
     url = f"{NACOS_SERVER}/nacos/v2/ns/instance"
-    data = {"serviceName": service_name, "ip": host, "port": port, "metadata": {"version": "1.0"}}
-    response = requests.post(url, json=data)
-    logger.info(response.json())
-    return response.json()
+    data = {"serviceName": service_name, "ip": host, "port": port}
+    try:
+        response = requests.post(url, json=data)
+        if response.status_code == 200:
+            logger.info(
+                f"Service {service_name} with host {host} and port {port} registered successfully"
+            )
+        else:
+            logger.error(
+                f"Failed to register service {service_name} with host {host} and port {port}"
+            )
+    except requests.RequestException as e:
+        logger.error(f"Failed to connect to service: {e}")
 
 
 def get_service_instance(service_name):

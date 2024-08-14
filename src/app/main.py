@@ -8,7 +8,7 @@ from contextlib import asynccontextmanager
 
 from app.rate_limiter import limiter
 from app.api import api_router
-from app.plugins.app_nacos.service import start_heartbeats, stop_heartbeats
+from app.plugins.app_nacos.service import start_nacos_client, stop_nacos_client
 
 
 async def not_found(request, exc):
@@ -22,9 +22,9 @@ exception_handlers = {404: not_found}
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    await start_heartbeats()
+    await start_nacos_client()
     yield
-    await stop_heartbeats()
+    await stop_nacos_client()
 
 
 # we create the ASGI for the app
