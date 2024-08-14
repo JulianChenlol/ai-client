@@ -5,7 +5,7 @@ from app.utils.log_util import logger
 
 
 async def register_service(service_name, host, port):
-    url = f"{NACOS_SERVER}/nacos/v2/ns/instance"
+    url = f"http://{NACOS_SERVER}/nacos/v2/ns/instance"
     data = {"serviceName": service_name, "ip": host, "port": port}
     try:
         response = requests.post(url, json=data)

@@ -3,13 +3,15 @@ from .models.chat import ChatRequest, ChatResponse
 from .factory import FactoryProducer
 from .constants import LLM
 from app.api_key.service import check_api_key
+from app.api_key.schemas import ApiKey
+from typing import Annotated
 
 router = APIRouter()
 
 
 @router.post("/completion", response_model=ChatResponse)
-def complete(chat_request: ChatRequest, api_key: Depends(check_api_key)):
-    if chat_request.model != api_key.model_name:
+def complete(chat_request: ChatRequest, api_key: Annotated[ApiKey, Depends(check_api_key)]):
+    if chat_request.model != api_key.model:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail=[{"msg": "This model is not allowed for this api key."}],

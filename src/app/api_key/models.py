@@ -9,7 +9,7 @@ class ApiKeyBase(AppBase):
     offical_key: str = None
     endpoint: str = None
     active: bool
-    model_name: str
+    model: str
 
 
 class ApiKeyCreate(ApiKeyBase):

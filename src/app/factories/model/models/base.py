@@ -4,13 +4,13 @@ from .chat import Dialog
 
 
 class BaseModel:
-    def __init__(self, apikey: str, model_name: str) -> None:
+    def __init__(self, apikey: str, model: str) -> None:
         self._apikey = apikey
-        self._model_name = model_name
+        self._model = model
 
     @property
-    def model_name(self):
-        return self._model_name
+    def model(self):
+        return self._model
 
     def check_apikey(self):
         if not self._apikey:

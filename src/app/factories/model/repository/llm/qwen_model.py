@@ -17,7 +17,7 @@ class QwenModel(ChatModel):
 
     def __init__(self, url) -> None:
         self._url = url
-        super().__init__(apikey=None, model_name="qwen")
+        super().__init__(apikey=None, model="qwen")
 
     def get_model_config(self):
         return {
