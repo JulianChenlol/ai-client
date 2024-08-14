@@ -21,6 +21,10 @@ async def heartbeat_task(model: LlmModel):
         logger.error(f"Service is unhealthy for {model.name}")
 
 
+async def start_heartbeats():
+    asyncio.create_task(send_heartbeats())
+
+
 async def send_heartbeats():
     db_session = SessionLocal()
     global START
