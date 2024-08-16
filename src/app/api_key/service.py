@@ -8,10 +8,14 @@ from fastapi import HTTPException
 from jose import JWTError, jwt
 from jose.exceptions import JWKError
 
-from .schemas import ApiKey
+from .schemas import ApiKey, UserApiKey
 from .models import ApiKeyCreate, ApiKeyUpdate
 from app.utils.log_util import logger
 from config import APP_JWT_SECRET
+
+
+def generate_api_key() -> str:
+    """Generates a new api key"""
 
 
 def check_api_key(request: Request) -> Optional[ApiKey]:
@@ -79,3 +83,14 @@ def delete(*, db_session: Session, api_key_id: int):
     api_key = db_session.query(ApiKey).filter(ApiKey.id == api_key_id).first()
     db_session.delete(api_key)
     db_session.commit()
+
+
+def add_users(*, db_session: Session, user_ids: List[int], api_key_id: int):
+    """Adds users to an api key"""
+    db_session.add_all(UserApiKey(user_id=user_id, api_key_id=api_key_id) for user_id in user_ids)
+    db_session.commit()
+
+
+def get_by_user(*, db_session: Session, user_id: int) -> List[ApiKey]:
+    """Returns a ApiKey object based on the given user id"""
+    return db_session.query(UserApiKey).filter(UserApiKey.user_id == user_id).all()
