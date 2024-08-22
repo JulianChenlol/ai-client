@@ -1,16 +1,17 @@
 from fastapi import APIRouter
 from typing import List
-from sqlalchemy.orm import Session
 
-from .service import add_users, get_by_user, create
+from .service import add_users, get_by_user, create, generate_api_key
 from .models import ApiKeyCreate
 from app.database.core import DbSession
 
 router = APIRouter()
 
 
-@router.post("create")
-def create_apikey(db_session: Session, api_key_in: ApiKeyCreate):
+@router.post("/create")
+def create_apikey(api_key_in: ApiKeyCreate, db_session: DbSession):
+    if not api_key_in.key:
+        api_key_in.key = generate_api_key()
     return create(db_session=db_session, api_key_in=api_key_in)
 
 

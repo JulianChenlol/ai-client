@@ -9,7 +9,6 @@ You are a helpful assistant<|im_end|>
 <|im_start|>user
 {prompt}<|im_end|>
 <|im_start|>assistant"""
-# URL = "http://10.40.22.45:8000/completion"
 TIMEOUT = 30
 
 

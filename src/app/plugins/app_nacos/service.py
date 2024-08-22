@@ -11,8 +11,7 @@ START = True
 
 
 async def heartbeat_task(model: LlmModel):
-    url = f"{model.server_ip}:{model.server_port}/health"
-    is_health = check_service_health(url)
+    is_health = check_service_health(model.server_ip, model.server_port)
     if is_health:
         logger.info(f"Service is healthy for {model.name}")
         await send_heartbeat(model.name, model.server_ip, model.server_port)

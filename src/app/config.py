@@ -32,5 +32,7 @@ ALEMBIC_REVISION_PATH = config(
     "ALEMBIC_REVISION_PATH",
     default="src\\alembic\\versions",
 )
+
+CUSTOM_LLM_URL = config("CUSTOM_LLM_URL")
 if __name__ == "__main__":
     print(SQLALCHEMY_DATABASE_URI)

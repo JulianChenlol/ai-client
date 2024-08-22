@@ -6,9 +6,21 @@ from pydantic_core import ValidationError, InitErrorDetails
 from app.exceptions import NotFoundError
 import requests
 from app.utils.log_util import logger
+import telnetlib
 
 
-def check_service_health(url, fail_on_no_slot=False):
+def check_service_health(host: str, port: int) -> bool:
+    try:
+        telnetlib.Telnet(host=host, port=port, timeout=2)
+        logger.info(f"Service is healthy for {host}:{port}")
+        return True
+    except Exception as e:
+        logger.error(f"Service is unhealthy for {host}:{port}, error: {e}")
+        return False
+
+
+def check_api_health(host: str, port: int, fail_on_no_slot=False) -> bool:
+    url = f"{host}:{port}/health"
     params = {}
     if fail_on_no_slot:
         params["fail_on_no_slot"] = "1"

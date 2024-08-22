@@ -35,8 +35,8 @@ async def lifespan(app: FastAPI):
 
 
 # we create the ASGI for the app
-app = FastAPI(exception_handlers=exception_handlers, openapi_url="")
-# app = FastAPI(exception_handlers=exception_handlers, openapi_url="", lifespan=lifespan)
+# app = FastAPI(exception_handlers=exception_handlers, openapi_url="")
+app = FastAPI(exception_handlers=exception_handlers, openapi_url="", lifespan=lifespan)
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 app.add_middleware(GZipMiddleware, minimum_size=1000)
@@ -87,4 +87,4 @@ api.include_router(api_router)
 app.mount("/api/v1", app=api)
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8001)
