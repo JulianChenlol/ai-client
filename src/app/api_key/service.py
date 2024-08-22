@@ -1,26 +1,24 @@
 from typing import Optional
 from sqlalchemy.orm import Session
 from typing import List
-from starlette.requests import Request
-from starlette.status import HTTP_401_UNAUTHORIZED
 from fastapi.security.utils import get_authorization_scheme_param
-from fastapi import HTTPException
-from jose import JWTError, jwt
-from jose.exceptions import JWKError
+import secrets
 
+from app.database.core import SessionLocal
 from .schemas import ApiKey, UserApiKey
 from .models import ApiKeyCreate, ApiKeyUpdate
 from app.utils.log_util import logger
-from config import APP_JWT_SECRET
 
 
 def generate_api_key() -> str:
     """Generates a new api key"""
+    key = secrets.token_urlsafe(48)
+    user_key = "sk-" + key
+    return user_key
 
 
-def check_api_key(request: Request) -> Optional[ApiKey]:
+def check_api_key(authorization: str) -> Optional[List[ApiKey]]:
     """Check if the api key is valid"""
-    authorization: str = request.headers.get("Authorization")
     scheme, param = get_authorization_scheme_param(authorization)
     if not authorization or scheme.lower() != "bearer":
         logger.exception(
@@ -29,19 +27,8 @@ def check_api_key(request: Request) -> Optional[ApiKey]:
         return
 
     token = authorization.split()[1]
-
-    try:
-        data = jwt.decode(token, APP_JWT_SECRET)
-    except (JWKError, JWTError):
-        raise HTTPException(
-            status_code=HTTP_401_UNAUTHORIZED,
-            detail=[{"msg": "Could not validate credentials"}],
-        ) from None
-
-    return get_by_key(
-        db_session=request.state.db,
-        key=data["key"],
-    )
+    db_session = SessionLocal()
+    return db_session.query(ApiKey).filter(ApiKey.key == token).all()
 
 
 def get_by_key(*, db_session: Session, key: str) -> Optional[ApiKey]:

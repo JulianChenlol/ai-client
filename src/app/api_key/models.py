@@ -5,15 +5,15 @@ from typing import Optional
 
 
 class ApiKeyBase(AppBase):
-    api_key: str
-    offical_key: str = None
-    endpoint: str = None
+    key: Optional[str]
+    official_key: Optional[str]
+    endpoint: Optional[str]
     active: bool
     model: str
 
 
 class ApiKeyCreate(ApiKeyBase):
-    pass
+    active: bool = True
 
 
 class ApiKeyUpdate(ApiKeyBase):

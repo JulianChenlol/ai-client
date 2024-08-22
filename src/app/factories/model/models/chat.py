@@ -14,9 +14,9 @@ class Dialog(BaseModel):
 
 
 class ChatRequest(BaseModel):
-    model: str
+    model: str = "custom"
     messages: List[Dialog]
-    stream: bool
+    stream: bool = False
 
 
 class ChatResponse(ChatCompletion):

@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from .repository.llm.qwen_model import QwenModel
+from .repository.llm.custom_model import CustomModel
 from app.plugins.app_nacos.manager import get_service_instance
 
 
@@ -11,11 +12,14 @@ class IFactory(ABC):
 
 class LlmFactory(IFactory):
     def get_model(self, model_type: str):
-        url = get_service_instance(model_type)
+        instance = get_service_instance(model_type)
+        url = "http://" + instance + "/v1/chat/completions"
         if not url:
             return None
         if model_type == "qwen":
             return QwenModel(url)
+        elif model_type == "custom":
+            return CustomModel(url)
         else:
             return None
 
