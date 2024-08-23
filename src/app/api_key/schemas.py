@@ -5,6 +5,7 @@ from sqlalchemy.orm import relationship
 from app.database.core import Base
 from app.models import TimeStampMixin
 from app.auth.schemas import AppUser
+from app.model_instance.schemas import ModelInstance
 
 
 class ApiKey(Base, TimeStampMixin):
@@ -23,3 +24,12 @@ class UserApiKey(Base, TimeStampMixin):
 
     api_key_id = Column(Integer, ForeignKey(ApiKey.id), primary_key=True)
     api_key = relationship(ApiKey, backref="users")
+
+
+class ModelInstanceApiKey(Base, TimeStampMixin):
+    id = Column(Integer, primary_key=True)
+    model_instance_id = Column(Integer, ForeignKey(ModelInstance.id), primary_key=True)
+    model_instance = relationship(ModelInstance, backref="api_keys")
+
+    api_key_id = Column(Integer, ForeignKey(ApiKey.id), primary_key=True)
+    api_key = relationship(ApiKey, backref="model_instances")

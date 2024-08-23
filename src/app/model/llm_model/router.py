@@ -26,7 +26,7 @@ def get_llm_model(db_session: DbSession, llm_model_id: int):
     return get(db_session=db_session, llm_model_id=llm_model_id)
 
 
-@router.post("/update/{llm_model_id}", response_model=LlmModelRead)
+@router.put("/update/{llm_model_id}", response_model=LlmModelRead)
 def update_llm_model(db_session: DbSession, llm_model_id: PrimaryKey, llm_model_in: LlmModelUpdate):
     """Update a LLM model"""
     llm_model = get(db_session=db_session, llm_model_id=llm_model_id)

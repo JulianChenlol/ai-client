@@ -9,6 +9,7 @@ from app.auth.router import user_router, auth_router
 from app.model.llm_model.router import router as llm_model_router
 from app.factories.model.router import router as model_router
 from app.api_key.router import router as api_key_router
+from app.model_instance.router import router as model_instance_router
 
 
 class ErrorMessage(BaseModel):
@@ -47,3 +48,6 @@ api_router.include_router(user_router, prefix="/users", tags=["users"])
 api_router.include_router(llm_model_router, prefix="/llm_models", tags=["llm_models"])
 api_router.include_router(model_router, prefix="/models", tags=["models"])
 api_router.include_router(api_key_router, prefix="/api_keys", tags=["api_keys"])
+api_router.include_router(
+    model_instance_router, prefix="/model_instances", tags=["model_instances"]
+)
