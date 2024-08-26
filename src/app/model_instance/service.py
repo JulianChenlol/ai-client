@@ -1,6 +1,10 @@
 from sqlalchemy.orm import Session
+from typing import List, Optional
+
 from .models import ModelInstanceCreate, ModelInstanceUpdate
 from .schemas import ModelInstance
+from app.api_key.schemas import ModelInstanceApiKey
+from app.utils.tools import timer
 
 
 def create(*, db_session: Session, model_instance_in: ModelInstanceCreate) -> ModelInstance:
@@ -41,3 +45,22 @@ def delete(*, db_session: Session, model_instance_id: int):
     )
     db_session.delete(model_instance)
     db_session.commit()
+
+
+@timer
+def add_model_instances(*, db_session: Session, model_instance_ids: List[int], api_key_id: int):
+    """Adds model instances to an api key"""
+    db_session.bulk_save_objects(
+        ModelInstanceApiKey(model_instance_id=model_instance_id, api_key_id=api_key_id)
+        for model_instance_id in model_instance_ids
+    )
+    db_session.commit()
+
+
+def get_by_apikey(*, db_session: Session, api_key_id: int) -> List[Optional[ModelInstance]]:
+    """Returns model instances based on the given api key id"""
+    return (
+        db_session.query(ModelInstance)
+        .join(ModelInstanceApiKey)
+        .filter(ModelInstanceApiKey.api_key_id == api_key_id)
+    ).all()

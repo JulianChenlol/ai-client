@@ -5,9 +5,10 @@ from fastapi.security.utils import get_authorization_scheme_param
 import secrets
 
 from app.database.core import SessionLocal
-from .schemas import ApiKey, UserApiKey, ModelInstanceApiKey
+from .schemas import ApiKey, UserApiKey
 from .models import ApiKeyCreate, ApiKeyUpdate
 from app.utils.log_util import logger
+from app.utils.tools import timer
 
 
 def generate_api_key() -> str:
@@ -72,6 +73,7 @@ def delete(*, db_session: Session, api_key_id: int):
     db_session.commit()
 
 
+@timer
 def add_users(*, db_session: Session, user_ids: List[int], api_key_id: int):
     """Adds users to an api key"""
     db_session.add_all(UserApiKey(user_id=user_id, api_key_id=api_key_id) for user_id in user_ids)
@@ -79,23 +81,5 @@ def add_users(*, db_session: Session, user_ids: List[int], api_key_id: int):
 
 
 def get_by_user(*, db_session: Session, user_id: int) -> List[Optional[ApiKey]]:
-    """Returns a ApiKey object based on the given user id"""
-    return db_session.query(UserApiKey).filter(UserApiKey.user_id == user_id).all()
-
-
-def add_model_instances(*, db_session: Session, model_instance_ids: List[int], api_key_id: int):
-    """Adds model instances to an api key"""
-    db_session.add_all(
-        ModelInstanceApiKey(id=None, model_instance_id=model_instance_id, api_key_id=api_key_id)
-        for model_instance_id in model_instance_ids
-    )
-    db_session.commit()
-
-
-def get_model_instances(*, db_session: Session, api_key_id: int) -> List[ModelInstanceApiKey]:
-    """Returns a ModelInstanceApiKey object based on the given api key id"""
-    return (
-        db_session.query(ModelInstanceApiKey)
-        .filter(ModelInstanceApiKey.api_key_id == api_key_id)
-        .all()
-    )
+    """Returns apikeys based on the given user id"""
+    return db_session.query(ApiKey).join(UserApiKey).filter(UserApiKey.user_id == user_id).all()

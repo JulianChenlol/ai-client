@@ -6,11 +6,8 @@ from .service import (
     get_by_user,
     create,
     generate_api_key,
-    add_model_instances,
-    get_model_instances,
 )
 from .models import ApiKeyCreate, ApiKeyRead
-from .schemas import ApiKey
 from app.database.core import DbSession
 
 router = APIRouter()
@@ -28,20 +25,6 @@ def add_users_to_apikey(user_ids: List[int], api_key_id: int, db_session: DbSess
     add_users(db_session=db_session, user_ids=user_ids, api_key_id=api_key_id)
 
 
-@router.get("/get_by_user")
+@router.get("/get_by_user/{user_id}", response_model=List[ApiKeyRead])
 def get_apikey_by_user(user_id: int, db_session: DbSession) -> List[ApiKeyRead]:
     return get_by_user(db_session=db_session, user_id=user_id)
-
-
-@router.post("/add_model_instances")
-def add_model_instances_to_apikey(
-    model_instance_ids: List[int], api_key_id: int, db_session: DbSession
-):
-    add_model_instances(
-        db_session=db_session, model_instance_ids=model_instance_ids, api_key_id=api_key_id
-    )
-
-
-@router.get("/get_model_instances")
-def get_model_instances_for_apikey(api_key_id: int, db_session: DbSession):
-    return get_model_instances(db_session=db_session, api_key_id=api_key_id)

@@ -219,4 +219,7 @@ src/app/static/app/coverage
 components.d.ts
 
 # temp
-/temp/
+temp/
+
+# log
+logs/
