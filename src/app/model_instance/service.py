@@ -1,10 +1,18 @@
 from sqlalchemy.orm import Session
 from typing import List, Optional
 
-from .models import ModelInstanceCreate, ModelInstanceUpdate
+from .models import (
+    ModelInstanceCreate,
+    ModelInstanceUpdate,
+    UserApiKeyModelInstance,
+    ApiKeyModelInstance,
+    ModelInstanceRead,
+)
 from .schemas import ModelInstance
 from app.api_key.schemas import ModelInstanceApiKey
+from app.api_key.models import ApiKeyRead
 from app.utils.tools import timer
+from app.api_key.service import get_by_user as get_api_key_by_user
 
 
 def create(*, db_session: Session, model_instance_in: ModelInstanceCreate) -> ModelInstance:
@@ -64,3 +72,23 @@ def get_by_apikey(*, db_session: Session, api_key_id: int) -> List[Optional[Mode
         .join(ModelInstanceApiKey)
         .filter(ModelInstanceApiKey.api_key_id == api_key_id)
     ).all()
+
+
+def get_by_user(*, db_session: Session, user_id: int) -> Optional[UserApiKeyModelInstance]:
+    """Returns model instances based on the given user id"""
+    api_keys = []
+    api_key_list = get_api_key_by_user(db_session=db_session, user_id=user_id)
+    for api_key in api_key_list:
+        models = (
+            db_session.query(ModelInstance)
+            .join(ModelInstanceApiKey)
+            .filter(ModelInstanceApiKey.api_key_id == api_key.id)
+            .all()
+        )
+        api_keys.append(
+            ApiKeyModelInstance(
+                api_key=ApiKeyRead(**api_key.dict()),
+                model_instances=[ModelInstanceRead(**model.dict()) for model in models],
+            )
+        )
+    return UserApiKeyModelInstance(user_id=user_id, api_keys=api_keys)

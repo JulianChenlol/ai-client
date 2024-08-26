@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, status
 from typing import List
 
-from .service import create, get, update, delete, add_model_instances, get_by_apikey
+from .service import create, get, update, delete, add_model_instances, get_by_apikey, get_by_user
 from app.database.core import DbSession
 from app.database.service import CommonParameters, search_filter_sort_paginate
 from .models import (
@@ -67,3 +67,8 @@ def add_model_instances_to_apikey(
 @router.get("/get_by_api_key/{api_key_id}")
 def get_model_instances_by_apikey(api_key_id: int, db_session: DbSession):
     return get_by_apikey(db_session=db_session, api_key_id=api_key_id)
+
+
+@router.get("/get_by_user/{user_id}")
+def get_model_instances_by_user(user_id: int, db_session: DbSession):
+    return get_by_user(db_session=db_session, user_id=user_id)

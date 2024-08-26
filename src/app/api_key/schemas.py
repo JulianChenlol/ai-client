@@ -11,9 +11,6 @@ from app.model_instance.schemas import ModelInstance
 class ApiKey(Base, TimeStampMixin):
     id = Column(Integer, primary_key=True)
     key = Column(String, unique=True, index=True)
-    official_key = Column(String)
-    endpoint = Column(String)
-    model = Column(String)
     active = Column(Boolean)
 
 
