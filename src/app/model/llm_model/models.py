@@ -1,5 +1,6 @@
-from app.models import AppBase, Pagination, PrimaryKey, NameStr
 from typing import Optional, Literal
+
+from app.models import AppBase, Pagination, PrimaryKey, NameStr
 
 
 class LlmModelBase(AppBase):

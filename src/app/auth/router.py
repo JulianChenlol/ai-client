@@ -1,10 +1,16 @@
 from fastapi import APIRouter
+from pydantic_core import ValidationError, InitErrorDetails
+from typing import List
 
+from app.database.core import DbSession
+from app.exceptions import InvalidUsernameError, InvalidPasswordError, InvalidConfigurationError
 from .models import UserLogin, UserLoginResponse, UserRead, UserCreate
 from .service import get_by_email, create
-from app.database.core import DbSession
-from pydantic_core import ValidationError, InitErrorDetails
-from app.exceptions import InvalidUsernameError, InvalidPasswordError, InvalidConfigurationError
+
+from app.api_key.models import ApiKeyRead
+from app.api_key.service import get_by_user as get_apikeys_by_user
+from app.post.models import PostRead
+from app.post.service import get_by_user as get_posts_by_user
 
 auth_router = APIRouter()
 user_router = APIRouter()
@@ -60,3 +66,13 @@ def create_user(
 
     user = create(db_session=db_session, user_in=user_in)
     return user
+
+
+@user_router.get("/{user_id}/apikeys", response_model=List[ApiKeyRead])
+def get_apikeys(user_id: int, db_session: DbSession) -> List[ApiKeyRead]:
+    return get_apikeys_by_user(db_session=db_session, user_id=user_id)
+
+
+@user_router.get("/{user_id}/posts", response_model=List[PostRead])
+def get_posts(user_id: int, db_session: DbSession) -> List[PostRead]:
+    return get_posts_by_user(db_session=db_session, user_id=user_id)

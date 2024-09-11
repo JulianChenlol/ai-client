@@ -1,12 +1,15 @@
 from typing import Optional, List
-from .schemas import LlmModel
-from .models import LlmModelCreate, LlmModelUpdate, LlmModelRead
 from sqlalchemy.orm import Session
 from pydantic_core import ValidationError, InitErrorDetails
-from app.exceptions import NotFoundError
 import requests
-from app.utils.log_util import logger
 import telnetlib
+
+
+from .schemas import LlmModel
+from .models import LlmModelCreate, LlmModelUpdate, LlmModelRead
+
+from app.exceptions import NotFoundError
+from app.utils.log_util import logger
 
 
 def check_service_health(host: str, port: int) -> bool:

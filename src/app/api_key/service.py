@@ -8,7 +8,6 @@ from app.database.core import SessionLocal
 from .schemas import ApiKey, UserApiKey
 from .models import ApiKeyCreate, ApiKeyUpdate
 from app.utils.log_util import logger
-from app.utils.tools import timer
 
 
 def generate_api_key() -> str:

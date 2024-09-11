@@ -1,7 +1,5 @@
 from typing import List, Optional
-
 from fastapi import APIRouter
-
 from pydantic import BaseModel
 from starlette.responses import JSONResponse
 
@@ -10,6 +8,7 @@ from app.model.llm_model.router import router as llm_model_router
 from app.factories.model.router import router as model_router
 from app.api_key.router import router as api_key_router
 from app.model_instance.router import router as model_instance_router
+from app.post.router import router as post_router
 
 
 class ErrorMessage(BaseModel):
@@ -51,3 +50,4 @@ api_router.include_router(api_key_router, prefix="/api_keys", tags=["api_keys"])
 api_router.include_router(
     model_instance_router, prefix="/model_instances", tags=["model_instances"]
 )
+api_router.include_router(post_router, prefix="/posts", tags=["posts"])
