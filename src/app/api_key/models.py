@@ -6,7 +6,6 @@ from app.models import PrimaryKey
 
 
 class ApiKeyBase(AppBase):
-    key: Optional[str]
     active: bool
 
 
@@ -20,6 +19,7 @@ class ApiKeyUpdate(ApiKeyBase):
 
 class ApiKeyRead(ApiKeyBase):
     id: Optional[PrimaryKey]
+    key: Optional[str]
 
 
 class ApiKeyPagination(Pagination):

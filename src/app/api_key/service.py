@@ -73,7 +73,6 @@ def delete(*, db_session: Session, api_key_id: int):
     db_session.commit()
 
 
-@timer
 def add_users(*, db_session: Session, user_ids: List[int], api_key_id: int):
     """Adds users to an api key"""
     db_session.add_all(UserApiKey(user_id=user_id, api_key_id=api_key_id) for user_id in user_ids)
