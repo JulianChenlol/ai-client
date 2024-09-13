@@ -3,7 +3,7 @@ fastapi==0.108.0
 uvicorn==0.29.0
 gunicorn==21.2.0
 python-multipart==0.0.9
-alembic==1.13.2
+alembic==1.12.0
 sqlalchemy==2.0.31
 sqlalchemy-filters==0.13.0
 sqlalchemy-utils==0.41.2
@@ -21,3 +21,8 @@ python-jose==3.3.0
 
 ## code linting
 black==24.8.0
+
+## test
+pytest==8.3.3
+Faker==28.4.1
+factory-boy==3.3.1

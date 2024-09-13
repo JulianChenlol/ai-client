@@ -14,7 +14,7 @@
     "*.log": true,
   },
   "flake8.args": [
-    "--ignore=E24,W504,E501",
+    "--ignore=E24,W504,E501,E402",
     "--verbose"
   ],
   "black-formatter.args": [

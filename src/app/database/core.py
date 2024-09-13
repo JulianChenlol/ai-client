@@ -6,8 +6,7 @@ from typing import Annotated, Any
 from fastapi import Depends
 from pydantic_core import InitErrorDetails, ValidationError
 from sqlalchemy import create_engine, inspect
-from sqlalchemy.ext.declarative import declarative_base, declared_attr
-from sqlalchemy.orm import object_session, sessionmaker, Session
+from sqlalchemy.orm import object_session, sessionmaker, Session, declarative_base, declared_attr
 from sqlalchemy.sql.expression import true
 from sqlalchemy_utils import get_mapper
 from starlette.requests import Request
