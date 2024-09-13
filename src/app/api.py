@@ -9,6 +9,7 @@ from app.factories.model.router import router as model_router
 from app.api_key.router import router as api_key_router
 from app.model_instance.router import router as model_instance_router
 from app.post.router import router as post_router
+from app.poll.router import router as poll_router
 
 
 class ErrorMessage(BaseModel):
@@ -51,3 +52,4 @@ api_router.include_router(
     model_instance_router, prefix="/model_instances", tags=["model_instances"]
 )
 api_router.include_router(post_router, prefix="/posts", tags=["posts"])
+api_router.include_router(poll_router, prefix="/polls", tags=["polls"])
