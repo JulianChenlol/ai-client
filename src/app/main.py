@@ -16,6 +16,7 @@ from app.rate_limiter import limiter
 from app.api import api_router
 from app.utils.log_util import logger
 from app.plugins.app_nacos.service import start_nacos_client, stop_nacos_client
+from fastapi.middleware.cors import CORSMiddleware
 
 
 async def not_found(request, exc):
@@ -40,6 +41,14 @@ app = FastAPI(exception_handlers=exception_handlers, openapi_url="")
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 app.add_middleware(GZipMiddleware, minimum_size=1000)
+# Enable CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # we create the Web API framework
 api = FastAPI(
@@ -83,6 +92,13 @@ class ExceptionMiddleware(BaseHTTPMiddleware):
 api.add_middleware(ExceptionMiddleware)
 # we add all API routes to the Web API framework
 api.include_router(api_router)
+api.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.mount("/api/v1", app=api)
 
