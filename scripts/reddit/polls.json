@@ -1,0 +1,989 @@
+[
+    {
+        "title": "MBTI judging function most likely to be insitutionalist?",
+        "options": [
+            {
+                "text": "Te",
+                "votes": 0
+            },
+            {
+                "text": "Ti",
+                "votes": 0
+            },
+            {
+                "text": "Fe",
+                "votes": 0
+            },
+            {
+                "text": "Fi",
+                "votes": 0
+            },
+            {
+                "text": "Results",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "What\u2019s your type, and would you be a professional Demolition Derby Driver?",
+        "options": [
+            {
+                "text": "Yes",
+                "votes": 0
+            },
+            {
+                "text": "No",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Is Trump or Harris a High Te user",
+        "options": [
+            {
+                "text": "yes both",
+                "votes": 0
+            },
+            {
+                "text": "no both",
+                "votes": 0
+            },
+            {
+                "text": "yes Harris, No Trump",
+                "votes": 0
+            },
+            {
+                "text": "yes Trump, No harris",
+                "votes": 0
+            },
+            {
+                "text": "Results",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "what group is going to hypothetically become the next most common?",
+        "options": [
+            {
+                "text": "XNTX's",
+                "votes": 0
+            },
+            {
+                "text": "XNFX's",
+                "votes": 0
+            },
+            {
+                "text": "XSXJ's",
+                "votes": 0
+            },
+            {
+                "text": "XSXP's",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "MBTI least likely to enjoy gambling",
+        "options": [
+            {
+                "text": "ISXJ",
+                "votes": 0
+            },
+            {
+                "text": "INXJ",
+                "votes": 0
+            },
+            {
+                "text": "INXP",
+                "votes": 0
+            },
+            {
+                "text": "ENXJ",
+                "votes": 0
+            },
+            {
+                "text": "ESXJ",
+                "votes": 0
+            },
+            {
+                "text": "ENXP",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Who are the phone chargers?",
+        "options": [
+            {
+                "text": "xxxJ - phone most often charged",
+                "votes": 0
+            },
+            {
+                "text": "xxxJ - phone most often drained",
+                "votes": 0
+            },
+            {
+                "text": "xxxP - phone most often charged",
+                "votes": 0
+            },
+            {
+                "text": "xxxP - phone most often drained",
+                "votes": 0
+            },
+            {
+                "text": "No vote - see results",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Which of the following is the LEAST likely to stay up all night?",
+        "options": [
+            {
+                "text": "ESFP",
+                "votes": 0
+            },
+            {
+                "text": "ESTP",
+                "votes": 0
+            },
+            {
+                "text": "ESFJ",
+                "votes": 0
+            },
+            {
+                "text": "ESTJ",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Which of the following are most likely to stay up all night?",
+        "options": [
+            {
+                "text": "INTJ",
+                "votes": 0
+            },
+            {
+                "text": "INTP",
+                "votes": 0
+            },
+            {
+                "text": "INFP",
+                "votes": 0
+            },
+            {
+                "text": "INFJ",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "What mbti has the messiest room?",
+        "options": [
+            {
+                "text": "INXP",
+                "votes": 0
+            },
+            {
+                "text": "ISXJ",
+                "votes": 0
+            },
+            {
+                "text": "ENXP",
+                "votes": 0
+            },
+            {
+                "text": "ESXP",
+                "votes": 0
+            },
+            {
+                "text": "ISXP",
+                "votes": 0
+            },
+            {
+                "text": "INXJ",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Has anyone\u2019s MBTI ever changed?",
+        "options": [
+            {
+                "text": "Yes",
+                "votes": 0
+            },
+            {
+                "text": "No",
+                "votes": 0
+            },
+            {
+                "text": "I don\u2019t remember/Results",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Does your parents share a cognitive function in their top 2 functions ?",
+        "options": [
+            {
+                "text": "No, they don't share a function in their top 2 functions",
+                "votes": 0
+            },
+            {
+                "text": "Yes, they share a function, also me and all of my siblings use that function in our 4 function stack",
+                "votes": 0
+            },
+            {
+                "text": "Yes, they share a function but there's only 1 of the children who doesn't use it",
+                "votes": 0
+            },
+            {
+                "text": "Yes, they share a function but there's 2 or more of the children who doesn't use it",
+                "votes": 0
+            },
+            {
+                "text": "No answer/see results",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "What mbti is the best at \"doing nothing\"",
+        "options": [
+            {
+                "text": "ISFP",
+                "votes": 0
+            },
+            {
+                "text": "ISTP",
+                "votes": 0
+            },
+            {
+                "text": "INFP",
+                "votes": 0
+            },
+            {
+                "text": "INTP",
+                "votes": 0
+            },
+            {
+                "text": "INFJ",
+                "votes": 0
+            },
+            {
+                "text": "ISTJ",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "What is your love language?",
+        "options": [
+            {
+                "text": "Acts of Service",
+                "votes": 0
+            },
+            {
+                "text": "Gift Giving",
+                "votes": 0
+            },
+            {
+                "text": "Physical Touch",
+                "votes": 0
+            },
+            {
+                "text": "Quality Time",
+                "votes": 0
+            },
+            {
+                "text": "Words of Affirmation",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Who are you more confident typing?",
+        "options": [
+            {
+                "text": "Myself",
+                "votes": 0
+            },
+            {
+                "text": "People I know well in real life",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "What is your favourite MBTI from this list?",
+        "options": [
+            {
+                "text": "ENTP",
+                "votes": 0
+            },
+            {
+                "text": "INFJ",
+                "votes": 0
+            },
+            {
+                "text": "ISFJ",
+                "votes": 0
+            },
+            {
+                "text": "ISTP",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Most intelligent cognitive function",
+        "options": [
+            {
+                "text": "Ti",
+                "votes": 0
+            },
+            {
+                "text": "Ne",
+                "votes": 0
+            },
+            {
+                "text": "Ni",
+                "votes": 0
+            },
+            {
+                "text": "Te",
+                "votes": 0
+            },
+            {
+                "text": "Result",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "How deep are you in the Jungian typology rabbit hole? Comment if you wish to be more precise about your journey.",
+        "options": [
+            {
+                "text": "I took a test or had a friend type me",
+                "votes": 0
+            },
+            {
+                "text": "I've taken several tests and/or read a couple articles",
+                "votes": 0
+            },
+            {
+                "text": "I know about cognitive functions, watch a few videos and read several articles online",
+                "votes": 0
+            },
+            {
+                "text": "I follow specific channels or websites about types and functions (CS Joseph, Cognitive Type, Sociotype, Erik Thor, etc.)",
+                "votes": 0
+            },
+            {
+                "text": "I have read books or excerpts from books on modern typology (Dario Nardi, John Beebe, Linda Berens)",
+                "votes": 0
+            },
+            {
+                "text": "I have read multiple hundreds of pages from books by Carl Jung, Emma Jung or ML von Franz",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "What's your opinion on fi",
+        "options": [
+            {
+                "text": "fi sucks",
+                "votes": 0
+            },
+            {
+                "text": "fi? mmmmm...... it's okay",
+                "votes": 0
+            },
+            {
+                "text": "fi is the best cognitive  function",
+                "votes": 0
+            },
+            {
+                "text": "huh? fi?",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Are the majority of Morning People J types?",
+        "options": [
+            {
+                "text": "Morning Person J Type",
+                "votes": 0
+            },
+            {
+                "text": "Morning Person P Type",
+                "votes": 0
+            },
+            {
+                "text": "Night Owl J Type",
+                "votes": 0
+            },
+            {
+                "text": "Night Owl P Type",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Most sensitive and emotional",
+        "options": [
+            {
+                "text": "Infj",
+                "votes": 0
+            },
+            {
+                "text": "Infp",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "What is Beyonce's MBTI type?",
+        "options": [
+            {
+                "text": "ISFJ",
+                "votes": 0
+            },
+            {
+                "text": "ESFP",
+                "votes": 0
+            },
+            {
+                "text": "ENFP",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Which personality type is most likely to care about style?",
+        "options": [
+            {
+                "text": "INFP",
+                "votes": 0
+            },
+            {
+                "text": "INTP",
+                "votes": 0
+            },
+            {
+                "text": "ISTP",
+                "votes": 0
+            },
+            {
+                "text": "ISTJ",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "What mbti pisses of the most ENTJs?",
+        "options": [
+            {
+                "text": "Enfp",
+                "votes": 0
+            },
+            {
+                "text": "Infp",
+                "votes": 0
+            },
+            {
+                "text": "Enfj",
+                "votes": 0
+            },
+            {
+                "text": "Infj",
+                "votes": 0
+            },
+            {
+                "text": "Entp",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "What is your favourite Explorer?",
+        "options": [
+            {
+                "text": "ISTP",
+                "votes": 0
+            },
+            {
+                "text": "ISFP",
+                "votes": 0
+            },
+            {
+                "text": "ESTP",
+                "votes": 0
+            },
+            {
+                "text": "ESFP",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "What is your favourite Sentinel?",
+        "options": [
+            {
+                "text": "ISTJ",
+                "votes": 0
+            },
+            {
+                "text": "ISFJ",
+                "votes": 0
+            },
+            {
+                "text": "ESTJ",
+                "votes": 0
+            },
+            {
+                "text": "ESFJ",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "What is your favourite of the Diplomats?",
+        "options": [
+            {
+                "text": "INFJ",
+                "votes": 0
+            },
+            {
+                "text": "INFP",
+                "votes": 0
+            },
+            {
+                "text": "ENFJ",
+                "votes": 0
+            },
+            {
+                "text": "ENFP",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "What is your favourite MBTI out of the Analysis?",
+        "options": [
+            {
+                "text": "INTJ",
+                "votes": 0
+            },
+            {
+                "text": "INTP",
+                "votes": 0
+            },
+            {
+                "text": "ENTJ",
+                "votes": 0
+            },
+            {
+                "text": "ENTP",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "physical or mbti compatibility",
+        "options": [
+            {
+                "text": "physical",
+                "votes": 0
+            },
+            {
+                "text": "mbti",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Do u think infp are the most sensitive and emotional type among all 16 types",
+        "options": [
+            {
+                "text": "Yes",
+                "votes": 0
+            },
+            {
+                "text": "No",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Smirk Face and Likely Cognitive Function Relation (Part 2) (Not enough options for Both Faces)",
+        "options": [
+            {
+                "text": "Ne - Comes from seeing multiple perspectives and finding amusement in the possibilities or ironies others might miss",
+                "votes": 0
+            },
+            {
+                "text": "Si - Comes from recalling a similar situation, leads to condescendence because of perceived familiarity with the outcome",
+                "votes": 0
+            },
+            {
+                "text": "Ni - When others might not be aware of something, leading to a condescending attitude",
+                "votes": 0
+            },
+            {
+                "text": "Se - When I feel in control and capable of handling the situation with ease, possibly dismissing others",
+                "votes": 0
+            },
+            {
+                "text": "I don't make this face about smirking. (Check Smug poll)",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Smug Face and Likely Cognitive Function Relation (Part 1) (Not enough options for Both Faces)",
+        "options": [
+            {
+                "text": "Te - I use it to assert authority, often that can come off as dismissive or overly confident",
+                "votes": 0
+            },
+            {
+                "text": "Ti - When I'm confident about understanding something better than others",
+                "votes": 0
+            },
+            {
+                "text": "Fe - I use it to assert dominance or to mock someone in an impactful way",
+                "votes": 0
+            },
+            {
+                "text": "Fi - When I am feeling internally validated or morally superior in my stance",
+                "votes": 0
+            },
+            {
+                "text": "I don't make this face about smugness. (Check Smirk poll)",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Is your personnality (cognitive functions) different from 16p result?",
+        "options": [
+            {
+                "text": "Yes it was different",
+                "votes": 0
+            },
+            {
+                "text": "No it was not different",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Most likely to dress in black",
+        "options": [
+            {
+                "text": "Infj",
+                "votes": 0
+            },
+            {
+                "text": "Intj",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "What mbti is most likely to have the least amount of hobbies, or no hobbies at all?",
+        "options": [
+            {
+                "text": "INXP",
+                "votes": 0
+            },
+            {
+                "text": "ISXP",
+                "votes": 0
+            },
+            {
+                "text": "INXJ",
+                "votes": 0
+            },
+            {
+                "text": "ISXJ",
+                "votes": 0
+            },
+            {
+                "text": "ESXJ or ESXP",
+                "votes": 0
+            },
+            {
+                "text": "ENXP or ENXJ",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "What MBTI group do you like best ?",
+        "options": [
+            {
+                "text": "Analysts",
+                "votes": 0
+            },
+            {
+                "text": "Diplomats",
+                "votes": 0
+            },
+            {
+                "text": "Sentinels",
+                "votes": 0
+            },
+            {
+                "text": "Explorers",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Fiction or non fiction?",
+        "options": [
+            {
+                "text": "I'm a thinker: I prefer fiction",
+                "votes": 0
+            },
+            {
+                "text": "I'm a thinker: I prefer non fiction",
+                "votes": 0
+            },
+            {
+                "text": "I'm a feeler: I prefer fiction",
+                "votes": 0
+            },
+            {
+                "text": "I'm a feeler: I prefer non fiction",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Did you accurately type yourself the first time?",
+        "options": [
+            {
+                "text": "Yes",
+                "votes": 0
+            },
+            {
+                "text": "No",
+                "votes": 0
+            },
+            {
+                "text": "Still not sure on type",
+                "votes": 0
+            },
+            {
+                "text": "Yes, but I considered different types before going back to first type",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "What is your MBTI category?",
+        "options": [
+            {
+                "text": "Analysis (INTJ, INTP, ENTJ, ENTP)",
+                "votes": 0
+            },
+            {
+                "text": "Diplomats (INFJ, INFP, ENFJ, ENFP)",
+                "votes": 0
+            },
+            {
+                "text": "Sentinels (ISFJ, ISTJ, ESTJ, ESFJ)",
+                "votes": 0
+            },
+            {
+                "text": "Explorers (ISTP, ISFP, ESTP, ESFP)",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Do you celebrate your birthday?",
+        "options": [
+            {
+                "text": "I'm an intuitive - I usually celebrate my birthday",
+                "votes": 0
+            },
+            {
+                "text": "I'm a sensor - I usually celebrate my birthday",
+                "votes": 0
+            },
+            {
+                "text": "I'm an intuitive - I usually do not celebrate my birthday",
+                "votes": 0
+            },
+            {
+                "text": "I'm a sensor - I usually do not celebrate my birthday",
+                "votes": 0
+            },
+            {
+                "text": "Just here for the answers",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Is Squidward ISTJ or ISFP",
+        "options": [
+            {
+                "text": "ISTJ",
+                "votes": 0
+            },
+            {
+                "text": "ISFP",
+                "votes": 0
+            },
+            {
+                "text": "Other type",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "What MBTI category is you're personal favourite?",
+        "options": [
+            {
+                "text": "Analysis (INTJ, INTP, ENTJ, ENTP)",
+                "votes": 0
+            },
+            {
+                "text": "Diplomats (INFJ, INFP, ENFJ, ENFP)",
+                "votes": 0
+            },
+            {
+                "text": "Sentinels (ISFJ, ISTJ, ESTJ, ESFJ)",
+                "votes": 0
+            },
+            {
+                "text": "Explorers (ISTP, ISFP, ESTP, ESFP)",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Smarter INTx type?",
+        "options": [
+            {
+                "text": "INTJ",
+                "votes": 0
+            },
+            {
+                "text": "INTP",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Which of your functions did you notice first?",
+        "options": [
+            {
+                "text": "Dom function",
+                "votes": 0
+            },
+            {
+                "text": "Aux function",
+                "votes": 0
+            },
+            {
+                "text": "Tertiary function",
+                "votes": 0
+            },
+            {
+                "text": "Inferior function",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Do you think the Sakinorva mbti test is accurate?",
+        "options": [
+            {
+                "text": "Yes",
+                "votes": 0
+            },
+            {
+                "text": "No",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Which xxTJ type is generally the most disciplined?",
+        "options": [
+            {
+                "text": "INTJ",
+                "votes": 0
+            },
+            {
+                "text": "ENTJ",
+                "votes": 0
+            },
+            {
+                "text": "ISTJ",
+                "votes": 0
+            },
+            {
+                "text": "ESTJ",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "Who\u2019s better at Te?",
+        "options": [
+            {
+                "text": "ENTPs",
+                "votes": 0
+            },
+            {
+                "text": "ENFPs",
+                "votes": 0
+            },
+            {
+                "text": "INTPs",
+                "votes": 0
+            }
+        ]
+    },
+    {
+        "title": "[Updated Version, continents] Where are you all from?",
+        "options": [
+            {
+                "text": "Asia",
+                "votes": 0
+            },
+            {
+                "text": "Africa",
+                "votes": 0
+            },
+            {
+                "text": "North america",
+                "votes": 0
+            },
+            {
+                "text": "South america",
+                "votes": 0
+            },
+            {
+                "text": "Europe",
+                "votes": 0
+            },
+            {
+                "text": "Australia",
+                "votes": 0
+            }
+        ]
+    }
+]

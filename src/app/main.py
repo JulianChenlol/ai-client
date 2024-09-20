@@ -9,6 +9,9 @@ from starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoin
 from starlette.requests import Request
 from starlette.responses import StreamingResponse
 
+from sqlalchemy.orm import scoped_session
+from app.database.core import sessionmaker, engine
+
 import uvicorn
 from contextlib import asynccontextmanager
 
@@ -60,6 +63,23 @@ api = FastAPI(
     redoc_url="/redocs",
 )
 api.add_middleware(GZipMiddleware, minimum_size=1000)
+
+
+@api.middleware("http")
+async def db_session_middleware(request: Request, call_next):
+
+    try:
+        session = scoped_session(sessionmaker(bind=engine))
+        request.state.db = session()
+        response = await call_next(request)
+        logger.info("this")
+    except Exception as e:
+        raise e from None
+    finally:
+        logger.info("close")
+        request.state.db.close()
+
+    return response
 
 
 class ExceptionMiddleware(BaseHTTPMiddleware):
